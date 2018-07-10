@@ -2,8 +2,8 @@
 
 1. 从输入url到页面加载结束所经历的过程：DNS域名解析 -> TCP连接（三次握手） -> 发送http请求 -> http响应 ->  （浏览器跟踪重定向地址） -> 服务器处理请求 -> 返回html资源(视情况决定释放TCP连接) -> 客户端解析HTML -> 获取嵌入在HTML中的对象重新发起http请求；
 
-2. 什么是**同源策略**：同源是指*指协议相同*，*域名相同*，*端口相同*；
-   非同源策略有什么限制:+ cookie,localStorage,indexDB无法获取；
+2. 什么是**同源策略**：同源是指*指协议相同*，*域名相同*，*端口相同*；  
+	非同源策略有什么限制:+ cookie,localStorage,indexDB无法获取；
 						+ DOM无法获取；
 						+ ajax请求无法发送；
 						
@@ -85,11 +85,28 @@
 > HTTP报文是包裹在TCP报文中发送的，服务器端收到TCP报文时会解包提取出HTTP报文。但是这个过程中存在一定的风险，HTTP报文是明文，如果中间被截取的话会存在一些信息泄露的风险。那么在进入TCP报文之前对HTTP做一次加密就可以解决这个问题了。HTTPS协议的本质就是HTTP + SSL(or TLS)。在HTTP报文进入TCP报文之前，先使用SSL对HTTP报文进行加密。从网络的层级结构看它位于HTTP协议与TCP协议之间。
 
 4. cookie sessionStorage localStorage的区别：
+	> cookie 它很小，最大限制为4kb左右（每个域名下的cookie 的大小最大为4KB，每个域名下的cookie数量最多为20个（但很多浏览器厂商在具体实现时支持大于20个）。），它的主要用途有保存登录信息，比如你登录某个网站市场可以看到“记住密码”，这通常就是通过在 Cookie 中存入一段辨别用户身份的数据来实现的。
+	`
+		document.cookie = "test1=myCookie1;"
+		document.cookie = "test2=myCookie2; domain=.google.com.hk; path=/webhp"
+		document.cookie = "test3=myCookie3; domain=.google.com.hk; expires=Sat, 04 Nov 2017 16:00:00 GMT; secure"
+		document.cookie = "test4=myCookie4; domain=.google.com.hk; max-age=10800;"
+	`
+	> sessionStorage 严格用于一个浏览器会话中存储数据，因为数据在浏览器关闭后会立即删除
+	> localStorage 则用于跨会话持久化地存储数据。
+	
 
 5. TCP三次握手和四次挥手：
-
+	> 三次握手发生在建立tcp连接的时候：a.客户端发送连接请求报文（SYN）b. 服务端接受连接后回复ACK报文，并为这次连接分配资源 c. 客户端接收到ACK报文后也向Server段发生ACK报文，并分配资源，这样TCP连接就建立了；
+	> 四次挥手发生在断开tcp连接的时候：假设Client端发起中断连接请求，也就是发送FIN报文。Server端接到FIN报文后，意思是说"我Client端没有数据要发给你了"，但是如果你还有数据没有发送完成，则不必急着关闭Socket，可以继续发送数据。所以你先发送ACK，"告诉Client端，你的请求我收到了，但是我还没准备好，请继续你等我的消息"。这个时候Client端就进入FIN_WAIT状态，继续等待Server端的FIN报文。当Server端确定数据已发送完成，则向Client端发送FIN报文，"告诉Client端，好了，我这边数据发完了，准备好关闭连接了"。Client端收到FIN报文后，"就知道可以关闭连接了，但是他还是不相信网络，怕Server端不知道要关闭，所以发送ACK后进入TIME_WAIT状态，如果Server端没有收到ACK则可以重传。“，Server端收到ACK后，"就知道可以断开连接了"。Client端等待了2MSL后依然没有收到回复，则证明Server端已正常关闭，那好，我Client端也可以关闭连接了。Ok，TCP连接就这样关闭了！
 6. GET和POST的区别：
-
+	> 1.对参数的数据类型，GET只接受ASCII字符，而POST没有限制，允许二进制。
+	  2.GET请求数据有大小限制，最大是2048个字符，POST参数数据是没有限制的。
+	  3.GET在浏览器回退/刷新时是无害的，而POST会再次提交请求。
+	  4.POST 比 GET 更安全，因为GET参数直接暴露在URL上，POST参数在HTTP消息主体中，而且不会被保存在浏览器历史或 web 服务器日志中。
+	  5.GET请求会被浏览器自动缓存，而post不会；
+	  6.GET请求的参数会保留在历史记录中，而post不会；
+	  7.GET请求可被收藏为书签，POST不能。
 7. 需要了解的状态码：
    > 202
    > 204
@@ -101,7 +118,7 @@
    > 307
    > 400
    > 401
-   > 403
+   > 403 可以简单的理解为没有权限访问此站，服务器收到请求但拒绝提供服务。
    > 404
    > 500
    > 503
