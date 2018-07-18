@@ -9,7 +9,7 @@
 						
    跨域的方式：
 		a.*jsonp方式*：
-	> JSONP实现跨域请求的原理简单的说，就是动态创建<script>标签，然后利用<script>的src 不受同源策略约束来跨域获取数据。
+		> JSONP实现跨域请求的原理简单的说，就是动态创建<script>标签，然后利用<script>的src 不受同源策略约束来跨域获取数据。
 	```<!DOCTYPE html>
 		<html lang="en">
 		<head>
@@ -86,12 +86,12 @@
 
 4. cookie sessionStorage localStorage的区别：
 	> cookie 它很小，最大限制为4kb左右（每个域名下的cookie 的大小最大为4KB，每个域名下的cookie数量最多为20个（但很多浏览器厂商在具体实现时支持大于20个）。），它的主要用途有保存登录信息，比如你登录某个网站市场可以看到“记住密码”，这通常就是通过在 Cookie 中存入一段辨别用户身份的数据来实现的。
-	`
+	```
 		document.cookie = "test1=myCookie1;"
 		document.cookie = "test2=myCookie2; domain=.google.com.hk; path=/webhp"
 		document.cookie = "test3=myCookie3; domain=.google.com.hk; expires=Sat, 04 Nov 2017 16:00:00 GMT; secure"
 		document.cookie = "test4=myCookie4; domain=.google.com.hk; max-age=10800;"
-	`
+	```
 	> sessionStorage 严格用于一个浏览器会话中存储数据，因为数据在浏览器关闭后会立即删除
 	> localStorage 则用于跨会话持久化地存储数据。
 	
@@ -108,17 +108,4 @@
 	  6.GET请求的参数会保留在历史记录中，而post不会；
 	  7.GET请求可被收藏为书签，POST不能。
 7. 需要了解的状态码：
-   > 202
-   > 204
-   > 206
-   > 301
-   > 302
-   > 303
-   > 304
-   > 307
-   > 400
-   > 401
    > 403 可以简单的理解为没有权限访问此站，服务器收到请求但拒绝提供服务。
-   > 404
-   > 500
-   > 503
