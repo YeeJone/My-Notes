@@ -27,7 +27,65 @@
 	//"1,a,Sun Dec 21 1997 22:12:00 GMT+0800 (中国标准时间)"
 	```
 ## 函数
-1. 函数的上下文是指：  
+1. 函数的上下文是指:
+	> 上下文又指函数的执行环境，JavaScript 中的函数既可以被当作普通函数执行，也可以作为对象的方法执行，这是导致 this 含义如此丰富的主要原因。一个函数被执行时，会创建一个执行环境（ExecutionContext），函数的所有的行为均发生在此执行环境中，构建该执行环境时，JavaScript 首先会创建 arguments变量，其中包含调用函数时传入的参数。接下来创建作用域链。然后初始化变量，首先初始化函数的形参表，值为 arguments变量中对应的值，如果 arguments变量中没有对应值，则该形参初始化为 undefined。如果该函数中含有内部函数，则初始化这些内部函数。如果没有，继续初始化该函数内定义的局部变量，需要注意的是此时这些变量初始化为 undefined，其赋值操作在执行环境（ExecutionContext）创建成功后，函数执行时才会执行，这点对于我们理解 JavaScript 中的变量作用域非常重要，鉴于篇幅，我们先不在这里讨论这个话题。最后为 this变量赋值，如前所述，会根据函数调用方式的不同，赋给 this全局对象，当前对象等。至此函数的执行环境（ExecutionContext）创建成功，函数开始逐行执行，所需变量均从之前构建好的执行环境（ExecutionContext）中读取。
 ## Other
-1. typeof有的几种类型：  
+1. typeof有的几种类型：undefined，function，boolean，number，string，Symbol；
+	**注意事项**：
+	```
+	typeof null === 'object';
+	typeof new Boolean(true) === 'object';
+	typeof Boolean(true) === 'boolean';
+	typeof new Number(1) === 'object';
+	typeof Number(1) === 'number';
+	typeof new String("abc") === 'object';
+	typeof String("abc") === 'string';
+	typeof new Function() === 'function';
+	typeof class C{} === 'function'
+	```
 2. require和import的区别：  
+3. querySelectorAll 方法相比 getElementsBy 系列方法有什么区别？
+	> **1.W3C的标准**
+		querySelectorAll 属于 W3C 中的 Selectors API 规范 [1]。而 getElementsBy 系列则属于 W3C 的 DOM 规范 [2]。  
+	  **2.浏览器兼容**  
+		querySelectorAll 已被 IE 8+、FF 3.5+、Safari 3.1+、Chrome 和 Opera 10+ 良好支持 。getElementsBy 系列，以最迟添加到规范中的 getElementsByClassName 为例，IE 9+、FF 3 +、Safari 3.1+、Chrome 和 Opera 9+ 都已经支持该方法了。
+	  **3.接收参数**  
+		querySelectorAll 方法接收的参数是一个 CSS 选择符。而 getElementsBy 系列接收的参数只能是单一的className、tagName 和 name。代码如下 [3]：  
+		```
+		var c1 = document.querySelectorAll('.b1 .c');
+		var c2 = document.getElementsByClassName('c');
+		var c3 = document.getElementsByClassName('b2')[0].getElementsByClassName('c');  
+		```  
+		需要注意的是，querySelectorAll 所接收的参数是必须严格符合 CSS 选择符规范的。所以下面这种写法，将会抛出异常。代码如下 [4]：  
+		```  
+		try {
+		  var e1 = document.getElementsByClassName('1a2b3c');
+		  var e2 = document.querySelectorAll('.1a2b3c');
+		} catch (e) {
+		  console.error(e.message);
+		}
+		console.log(e1 && e1[0].className);
+		console.log(e2 && e2[0].className);  
+		```
+	  **4. 返回值**  
+		querySelectorAll 返回的是一个 Static Node List，而 getElementsBy 系列的返回的是一个 Live Node List。
+		例子：  
+		```  
+		// Demo 1
+		var ul = document.querySelectorAll('ul')[0],
+			lis = ul.querySelectorAll("li");
+		for(var i = 0; i < lis.length ; i++){
+			ul.appendChild(document.createElement("li"));
+		}
+		// Demo 2
+		var ul = document.getElementsByTagName('ul')[0], 
+			lis = ul.getElementsByTagName("li"); 
+		for(var i = 0; i < lis.length ; i++){
+			ul.appendChild(document.createElement("li")); 
+		}  
+		```  
+		因为 Demo 2 中的 lis 是一个动态的 Node List， 每一次调用 lis 都会重新对文档进行查询，导致无限循环的问题。而 Demo 1 中的 lis 是一个静态的 Node List，是一个 li 集合的快照，对文档的任何操作都不会对其产生影响。
+
+		
+
+
