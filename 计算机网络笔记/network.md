@@ -129,4 +129,5 @@
 		   SNMP：简单网络管理协议  
 		   TELNET：远程登录协议
 11. web端缓存：[web缓存](http://www.alloyteam.com/2016/03/discussion-on-web-caching/)  
-	[强缓存&&协商缓存](https://segmentfault.com/a/1190000008956069)
+		[强缓存&&协商缓存](https://segmentfault.com/a/1190000008956069)  
+		[细节分析版](https://mp.weixin.qq.com/s/qOMO0LIdA47j3RjhbCWUEQ?utm_source=caibaojian.com)	
