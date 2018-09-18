@@ -2,12 +2,12 @@
 ## 数组
 1. Array.isArray(obj)判断传入的对象是否为数组。
 	```js
-		// 下面的函数调用都返回 true
-		Array.isArray([]);
-		Array.isArray([1]);
-		Array.isArray(new Array());
-		// 鲜为人知的事实：其实 Array.prototype 也是一个数组。
-		Array.isArray(Array.prototype);
+	// 下面的函数调用都返回 true
+	Array.isArray([]);
+	Array.isArray([1]);
+	Array.isArray(new Array());
+	// 鲜为人知的事实：其实 Array.prototype 也是一个数组。
+	Array.isArray(Array.prototype);
 	```
 	若Array.isArray()不存在，实现方法：
 	```js
