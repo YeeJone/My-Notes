@@ -41,7 +41,9 @@
 	typeof new String("abc") === 'object';
 	typeof String("abc") === 'string';
 	typeof new Function() === 'function';
-	typeof class C{} === 'function'
+	typeof class C{} === 'function'；  
+	typeof /\s/ === "function";
+	typeof document.all === "undefined"
 	```
 2. require和import的区别：  
 3. querySelectorAll 方法相比 getElementsBy 系列方法有什么区别？
