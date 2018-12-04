@@ -1,2 +1,2 @@
 # My-Notes
-Blog，Study notes
+Blog，Study Notes
