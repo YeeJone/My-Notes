@@ -54,7 +54,7 @@ instanceof是用来判断对应对象其所属的**引用类型** (object instan
     
 =================================================  
 上面的“奇怪现象”，需要一张图：  
-![原型链](./imgs/yuanxinglian.png "原型链")  
+![原型链](../imgs/yuanxinglian.png "原型链")  
    
  其实在控制台看Object,Function,Number,String...打印出来的都是一个function，所以他们自然属于Function对象，根据原型链图及instanceof定义可以得出上面的“奇怪现象”的几个语句是成立的；因为Function对象的原型链上并没有String，Number...等构造函数指向的原型，但Function和Object有。  
  ```js    
