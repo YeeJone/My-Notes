@@ -16,5 +16,8 @@
 *解决方案：*   
 (1) 使应用 rotate3d 的元素变成 BFC ，最简单的方式是在其单独块的父元素加上：`overflow: hidden`;  
 (2) 在背影响的元素（图中红色块）上设置 translateZ ；  
-*原理：*  **待补充文章...**
+*原理：*  **待补充文章...**  
+3. iOS 中 input 样式错乱问题  
+*原因：*  iOS 的个别类型（如：type='search' 等）的 input 会自带上一些类似` -webkit-appearance: searchfield; `等额外的属性，导致样式错乱。  
+*解决方法：* 在对应的 input 元素的 css 下将这些额外加上的属性恢复默认值（` -webkit-appearance: none; `）
 
