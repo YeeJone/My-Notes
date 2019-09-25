@@ -1,6 +1,5 @@
 # js-Base  
 ## Object  
-1. 
 ## 数组
 1. Array.isArray(obj)判断传入的对象是否为数组。
 	```js
