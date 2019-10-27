@@ -99,9 +99,14 @@
 	(4) 如果元素是不规则的图形也将会被看成一个包含元素所有区域的最小矩形;  
 	(5) [Can I use](https://caniuse.com/#search=IntersectionObserver) 上目前（2019.09.25）是 89.3% 浏览器都支持；  
 5. iOS 滚动条的「回弹」效果，window.scrollY || window.pageYOffset 的值为负数；  
-
-
-
+6. **Infinity**, 表示一个无穷大的数字，是一个全局变量。  
+	```
+	console.log(Math.pow(10, 10000))  // Infinity   
+	console.log(Math.log(0))  // -Infinity
+	Math.pow(10, 10000) === Infinity  // true  
+	Infinity/Infinity  // NaN  
+	54325435/Infinity  // 0  
+	```
 		
 
 
