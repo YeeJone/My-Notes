@@ -38,4 +38,5 @@
 *原理：*  **待补充文章...**  
 3. iOS 中 input 样式错乱问题  
 *原因：*  iOS 的个别类型（如：type='search' 等）的 input 会自带上一些类似` -webkit-appearance: searchfield; `等额外的属性，导致样式错乱。  
-*解决方法：* 在对应的 input 元素的 css 下将这些额外加上的属性恢复默认值（` -webkit-appearance: none; `）
+*解决方法：* 在对应的 input 元素的 css 下将这些额外加上的属性恢复默认值（` -webkit-appearance: none; `）  
+4. translate 属性控制的元素偏移并不会影响其他元素的布局；在一个特定大小的父容器中如果使用 **translate 控制子元素偏移出父容器范围**，且父容器 overflow：scroll，则会**触发滚动条**。
