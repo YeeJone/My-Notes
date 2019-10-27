@@ -12,6 +12,7 @@
 该属性的大部分是和 SVG 相关的，具体可移步 [MDN](https://developer.mozilla.org/zh-CN/docs/Web/CSS/pointer-events)。 这边主要关注 ```pointer-events：none``` 的一些表现和实际应用。🌰：[CodePen](https://codepen.io/yeejone/pen/gOYEMab)  
 	+ 当该属性值为 ```none``` 时，则该元素将不接受所有鼠标事件；
 	+ 该属性设为 ```none```，则该元素在页面上的表现相当于一个带有样式的'水印'，它会造成点击穿透；  
+4. **scroll-snap-type** 属性：*定义在滚动容器中的一个snap点如何被严格的执行*    
 	
 ## Attention Point
 1. 浏览器渲染页面的过程：[页面渲染](https://coolshell.cn/articles/9666.html);
