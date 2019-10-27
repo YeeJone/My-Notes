@@ -91,13 +91,15 @@
 4. Intersection Observer API.[MDN 介绍](https://developer.mozilla.org/zh-CN/docs/Web/API/Intersection_Observer_API) 
 	> 提供了一种异步观察目标元素与祖先元素或顶级文档viewport的交集中的变化的方法。  
 
-	**用途**：对特定元素的埋点、是图片懒加载等需求，大大提升页面性能。  
+	**用途**：对特定元素的埋点、是图片懒加载、无限加载列表等需求，大大提升页面性能。  
 	**注意事项**：  
 	(1) 这个 API 并不能提供两个元素的重叠部分的准确像素个数，只能在相交到一定百分比后，触发一个 Callback；  
 	(2) 触发 Callback 的百分比阀值由 **threshold** 来确定，0-1.0 之间取值，既可以传一个数字，也可以传一个数组；  
 	(3) Callback 会在主线程中执行，故最好不要执行一些耗时较长的操作，或者使用 Window.requestIdleCallback()；  
 	(4) 如果元素是不规则的图形也将会被看成一个包含元素所有区域的最小矩形;  
-	(5) [Can I use](https://caniuse.com/#search=IntersectionObserver) 上目前（2019.09.25）是 89.3% 浏览器都支持；
+	(5) [Can I use](https://caniuse.com/#search=IntersectionObserver) 上目前（2019.09.25）是 89.3% 浏览器都支持；  
+5. iOS 滚动条的「回弹」效果，window.scrollY || window.pageYOffset 的值为负数；  
+
 
 
 		
