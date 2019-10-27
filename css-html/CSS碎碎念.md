@@ -13,7 +13,17 @@
 	+ 当该属性值为 ```none``` 时，则该元素将不接受所有鼠标事件；
 	+ 该属性设为 ```none```，则该元素在页面上的表现相当于一个带有样式的'水印'，它会造成点击穿透；   
 4. **filter** 属性：可以通过设定相关「效果函数」，来改变页面中的一些图片展示效果。  
-	> 「效果函数」： [blur()](https://developer.mozilla.org/en-US/docs/Web/CSS/filter-function/blur)(高斯模糊、「毛玻璃」效果，默认值：0),[brightness()](https://developer.mozilla.org/en-US/docs/Web/CSS/filter-function/brightness)(调整图片的亮度，小于 1 在原图基础上变暗；大于 1 则变亮 默认值：1),[contrast()](https://developer.mozilla.org/en-US/docs/Web/CSS/filter-function/contrast)(调整图片的对对比度，规则与 brightness() 一样，默认值：1),[drop-shadow()](https://developer.mozilla.org/en-US/docs/Web/CSS/filter-function/drop-shadow)(增强版图像的「*box-shadow*」,可以依据图片的形状来增加阴影),[grayscale()](https://developer.mozilla.org/en-US/docs/Web/CSS/filter-function/grayscale)(改变图片的灰度，默认值：0),[hue-rotate()](https://developer.mozilla.org/en-US/docs/Web/CSS/filter-function/hue-rotate)(转换图片的色调，默认值：0),[invert()](https://developer.mozilla.org/en-US/docs/Web/CSS/filter-function/invert)(反转图像的颜色，默认值：0),[opacity()](https://developer.mozilla.org/en-US/docs/Web/CSS/filter-function/opacity)(和 *opacity* 属性作用、用法一样，特殊的是有部分浏览器在 fiter：opacity() 时会启动硬件加速，默认值：1),[saturate()](https://developer.mozilla.org/en-US/docs/Web/CSS/filter-function/saturate)(调整图像的饱和度，默认值：1),[sepia()](https://developer.mozilla.org/en-US/docs/Web/CSS/filter-function/sepia)(将图像跳成「土豪金」的色调，默认值：0),
+	> 「效果函数」：   
+	[blur()](https://developer.mozilla.org/en-US/docs/Web/CSS/filter-function/blur)--高斯模糊、「毛玻璃」效果，默认值：0  
+	[brightness()](https://developer.mozilla.org/en-US/docs/Web/CSS/filter-function/brightness)--调整图片的亮度，小于 1 在原图基础上变暗；大于 1 则变亮 默认值：1  
+	[contrast()](https://developer.mozilla.org/en-US/docs/Web/CSS/filter-function/contrast)--调整图片的对对比度，规则与 brightness() 一样，默认值：1  
+	[drop-shadow()](https://developer.mozilla.org/en-US/docs/Web/CSS/filter-function/drop-shadow)--增强版图像的「*box-shadow*」,可以依据图片的形状来增加阴影  
+	[grayscale()](https://developer.mozilla.org/en-US/docs/Web/CSS/filter-function/grayscale)--改变图片的灰度，默认值：0  
+	[hue-rotate()](https://developer.mozilla.org/en-US/docs/Web/CSS/filter-function/hue-rotate)--转换图片的色调，默认值：0  
+	[invert()](https://developer.mozilla.org/en-US/docs/Web/CSS/filter-function/invert)--反转图像的颜色，默认值：0  
+	[opacity()](https://developer.mozilla.org/en-US/docs/Web/CSS/filter-function/opacity)--和 *opacity* 属性作用、用法一样，特殊的是有部分浏览器在 fiter：opacity() 时会启动硬件加速，默认值：1  
+	[saturate()](https://developer.mozilla.org/en-US/docs/Web/CSS/filter-function/saturate)--调整图像的饱和度，默认值：1  
+	[sepia()](https://developer.mozilla.org/en-US/docs/Web/CSS/filter-function/sepia)--将图像跳成「土豪金」的色调，默认值：0  
 	
 ## Attention Point
 1. 浏览器渲染页面的过程：[页面渲染](https://coolshell.cn/articles/9666.html);
