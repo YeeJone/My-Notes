@@ -106,7 +106,8 @@
 	Math.pow(10, 10000) === Infinity  // true  
 	Infinity/Infinity  // NaN  
 	54325435/Infinity  // 0  
-	```
+	```  
+7. **EventTarget.addEventListener()** 的第三个参数。在「红宝石」书中，这个方法的第三个参数接受的是一个布尔值，如今在新版本的 DOM 的规定中，第三个参数可以接受一个可选配置对象。除了控制回调函数触发的事件流阶段的功能以外，增加了**「控制回调函数是否只执行一次」**、「**回调函数中是否可以使用 preventDefault()**」的两个配置项，具体细节「[MDN](https://developer.mozilla.org/zh-CN/docs/Web/API/EventTarget/addEventListener)」
 		
 
 
