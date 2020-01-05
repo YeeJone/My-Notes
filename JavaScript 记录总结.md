@@ -107,7 +107,15 @@
 	Infinity/Infinity  // NaN  
 	54325435/Infinity  // 0  
 	```  
-7. **EventTarget.addEventListener()** 的第三个参数。在「红宝石」书中，这个方法的第三个参数接受的是一个布尔值，如今在新版本的 DOM 的规定中，第三个参数可以接受一个可选配置对象。除了控制回调函数触发的事件流阶段的功能以外，增加了**「控制回调函数是否只执行一次」**、「**回调函数中是否可以使用 preventDefault()**」的两个配置项，具体细节「[MDN](https://developer.mozilla.org/zh-CN/docs/Web/API/EventTarget/addEventListener)」
-		
+7. **EventTarget.addEventListener()** 的第三个参数。在「红宝石」书中，这个方法的第三个参数接受的是一个布尔值，如今在新版本的 DOM 的规定中，第三个参数可以接受一个可选配置对象。除了控制回调函数触发的事件流阶段的功能以外，增加了**「控制回调函数是否只执行一次」**、「**回调函数中是否可以使用 preventDefault()**」的两个配置项，具体细节「[MDN](https://developer.mozilla.org/zh-CN/docs/Web/API/EventTarget/addEventListener)」  
 
+8. **document.referrer 介绍及理解**  document 对象有个 referrer 属性，它的值是上一个访问过页面的 url 。在有「返回上一页」的需求时，对这个属性做个判空处理用户体验更好。以下情况下 document.referrer 的值为空：    
+	> + 无上一个访问过的页面，如直接在地址栏输入地址访问的网页它的值为空字符串；  
+	> + 通过 rel="noreferrer" 的 a 标签跳转的网页；  
+	> + 网页中设置了 ```<meta content="never" name="referrer">``` 的网页；  
+	> + 「Referrer Policy」可以设置网页是否设置 referrer 的值, 社区的前辈已经总结：<img src="./imgs/referrer-policy.jpg" width = "100%"  alt="Chrome 浏览器" />  
+
+	其实与之对应的是 HTTP 协议在请求（request）的头信息里的「Referer」 字段，给出了上一个访问页面的 URL。（详情见：http://www.ruanyifeng.com/blog/2019/06/http-referer.html）。  
+
+9. 
 
