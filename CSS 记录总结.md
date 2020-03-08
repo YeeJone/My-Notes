@@ -24,7 +24,14 @@
 	[invert()](https://developer.mozilla.org/en-US/docs/Web/CSS/filter-function/invert)--反转图像的颜色，默认值：0  
 	[opacity()](https://developer.mozilla.org/en-US/docs/Web/CSS/filter-function/opacity)--和 *opacity* 属性作用、用法一样，特殊的是有部分浏览器在 fiter：opacity() 时会启动硬件加速，默认值：1  
 	[saturate()](https://developer.mozilla.org/en-US/docs/Web/CSS/filter-function/saturate)--调整图像的饱和度，默认值：1  
-	[sepia()](https://developer.mozilla.org/en-US/docs/Web/CSS/filter-function/sepia)--将图像跳成「土豪金」的色调，默认值：0 
+	[sepia()](https://developer.mozilla.org/en-US/docs/Web/CSS/filter-function/sepia)--将图像跳成「土豪金」的色调，默认值：0   
+5. **hyphens**[ˈhaɪfn] 属性：hyphens 这个单词翻译成英文为「连字符号」，所以可以推断出它是一个控制文本使用连字符规则的 css 属性。  
+***注意事项*** ： 连字符的出现或者说是换行规则是由语言来决定的。“在HTML中，语言由 lang 属性决定，只有存在此属性并且有适当的连字符字典时，浏览器才会有连字符”。在规范中没有明确定义浏览器需要执行连字符的规则，因此确切的连字符可能因浏览器而异。
+	> 可以取以下值：  
+	none ：表示单词并不会在换行符处出现，该行文本只在行文的空白处换行；  
+	manual ： 使用了该值，单词只在有「&hyphen」 或者 「&shy」处使用连字符换行；  
+	auto ： 浏览器会更具相应的语言规则自动的使用连字符，而且会覆盖使用了 「&hyphen」、 「&shy」的自动断点选择。  
+6. **text-indent** 属性： 用来控制一个块级元素首行文本的缩进。它的值是一个长度单位，px 或者是百分比，值得注意的是，当值为百分比时，它的缩进长度是由该元素的父元素的宽度决定的。
 	
 ## Attention Point
 1. 浏览器渲染页面的过程：[页面渲染](https://coolshell.cn/articles/9666.html);
