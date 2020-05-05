@@ -1,7 +1,9 @@
 ## WEB 安全 -- CSP
 
-前段时间在做项目页面性能统计时，需要在 html 中嵌入一段 js 脚本，原本以为只要加个 script 标签，写上对应的 js 即可，当我写好代码准备调试时，控制台抛出了个异常...
-<img src="./imgs/CSP[0].png" width = "400" alt="safari 浏览器" /> 
+前段时间在做项目页面性能统计时，需要在 html 中嵌入一段 js 脚本，原本以为只要加个 script 标签，写上对应的 js 即可，当我写好代码准备调试时，控制台抛出了个异常...  
+
+<img src="./imgs/CSP[0].png" width = "400" alt="safari 浏览器" />   
+
 原来我们项目使用 CSP 来做了一层安全保护，所以不能直接插入没有“安全标识“的内嵌脚本，那 CSP 到底是什么？它是如何保护我们网页？怎么在项目中使用它呢？
 
 ### 什么是 CSP（Content Security Policy）
@@ -26,7 +28,7 @@ CSP 通过设定安全的 web 内容域，来阻止非法脚本的执行，从�
 + **child-src** 规定了像 worker 、frame 这种嵌入可使用的链接。
 + **font-src** 规定了字体的来源，如果在网页中使用了第三方字体可以使用这个指令。
 + **form-action** 规定了网页中的 ```form``` 元素 ```action``` 的可提交地址。
-+ **connect-src** 规定了脚本中发起连接的地址，像 XMLHttpRequest 的 send 方法、WebSocket连接地址、EventSource 等
++ **connect-src** 规定了脚本中发起连接的地址，像 XMLHttpRequest 的 send 方法、WebSocket连接地址、EventSource 等。
 + **frame-src** 这个指令规定了 frame 的可使用链接。在 CSP level 2 中废弃了，文档中叫我们用 child-src 来代替这个指令，但在 level 3 中恢复使用。
 + **object-src** 规定了一些插件的来源，像 Flash 等。
 + **report-uri** 这个指令是指定一个 CSP 上报地址，当浏览器检测到有不通过指令时，将通过这个指定地址进行上报。值得注意的是，这个指令不能在 meta 元素中使用，并且在 CSP level3 中这个指令会被废弃，用 report-to 来代替，为了保证这个指令有效，官方推荐 report-uri & report-to 同时使用。
