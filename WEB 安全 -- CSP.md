@@ -45,7 +45,7 @@ CSP 直译为「内容安全策略」，它是由 w3c 提出来用于保证 web 
 + unsafe-inline 该值表示允许内嵌的脚本、样式。直接用这个感觉很粗糙，下面会提到更为安全的内嵌脚本、样式定义方法。
 + unsafe-eval 代表相应指令的源允许通过字符串动态创建的脚本执行，像 eval、setTimeout 等。  
 
-对于内联的脚本或者样式，即用 ```script``` 标签或者 ```style``` 标签内嵌到 HTML 的内容，CSP 也给了限制规则，就是在对应的 script 、style 标签上加一个 nonce 属性，并赋一个加密串，然后在页面的响应头 ```Content-Security-Policy``` 中加上这个加密串即可，确保每次请求页面时，加密串是不一样的，不然会让网站攻击者有可乘之机，下面是一个内嵌脚本的例子：  
+对于内联的脚本或者样式，即用 ```script``` 标签或者 ```style``` 标签内嵌到 HTML 的内容，CSP 也给了限制规则，就是在对应的 script 、style 标签上加一个 nonce 属性，并赋一个加密串，然后在页面的响应头 ```Content-Security-Policy``` 中加上这个加密串即可。确保每次请求页面时，加密串是不一样的，不然会让网站攻击者有可乘之机，下面是一个内嵌脚本的例子：  
 ```js
 // 内嵌到 HTML 的脚本
 <script nonce='e1f5e9ea-4765-4bf3-bd0a-5c6ab622d375'>
@@ -55,7 +55,7 @@ CSP 直译为「内容安全策略」，它是由 w3c 提出来用于保证 web 
 // 相应头
 Content-Security-Policy: script-src 'self' 'nonce-e1f5e9ea-4765-4bf3-bd0a-5c6ab622d375' hm.baidu.com zz.bdstatic.com www.googletagmanager.com;
 ```  
-指的注意的是 **nonce 和 上面提到的预设值需要用 ```''``` 单引号包裹起来才能生效。**  
+值的注意的是 **nonce 和 上面提到的预设值需要用 ```''``` 单引号包裹起来才能生效。**  一个 nonce 值可以用到多个内联脚本、样式中。
 
 ### 一个 🌰 分析
 ```
