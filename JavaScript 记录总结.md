@@ -29,6 +29,7 @@
 	```
 ## 函数
 1. 函数的上下文是指:
+	
 	> 上下文又指函数的执行环境，JavaScript 中的函数既可以被当作普通函数执行，也可以作为对象的方法执行，这是导致 this 含义如此丰富的主要原因。一个函数被执行时，会创建一个执行环境（ExecutionContext），函数的所有的行为均发生在此执行环境中，构建该执行环境时，JavaScript 首先会创建 arguments变量，其中包含调用函数时传入的参数。接下来创建作用域链。然后初始化变量，首先初始化函数的形参表，值为 arguments变量中对应的值，如果 arguments变量中没有对应值，则该形参初始化为 undefined。如果该函数中含有内部函数，则初始化这些内部函数。如果没有，继续初始化该函数内定义的局部变量，需要注意的是此时这些变量初始化为 undefined，其赋值操作在执行环境（ExecutionContext）创建成功后，函数执行时才会执行，这点对于我们理解 JavaScript 中的变量作用域非常重要，鉴于篇幅，我们先不在这里讨论这个话题。最后为 this变量赋值，如前所述，会根据函数调用方式的不同，赋给 this全局对象，当前对象等。至此函数的执行环境（ExecutionContext）创建成功，函数开始逐行执行，所需变量均从之前构建好的执行环境（ExecutionContext）中读取。
 ## Other
 1. typeof有的几种类型：undefined，function，boolean，number，string，Symbol，object；  
@@ -58,7 +59,7 @@
 		var c1 = document.querySelectorAll('.b1 .c');
 		var c2 = document.getElementsByClassName('c');
 		var c3 = document.getElementsByClassName('b2')[0].getElementsByClassName('c');  
-		```  
+		```
 		需要注意的是，querySelectorAll 所接收的参数是必须严格符合 CSS 选择符规范的。所以下面这种写法，将会抛出异常。代码如下 [4]：  
 		```  
 		try {
@@ -69,11 +70,11 @@
 		}
 		console.log(e1 && e1[0].className);
 		console.log(e2 && e2[0].className);  
-		``` .   
+		​``` .   
 		**4. 返回值**  
 		querySelectorAll 返回的是一个 Static Node List，而 getElementsBy 系列的返回的是一个 Live Node List。
 		例子：  
-		```  
+		```
 		// Demo 1
 		var ul = document.querySelectorAll('ul')[0],
 			lis = ul.querySelectorAll("li");
@@ -88,6 +89,7 @@
 		}  
 		```  
 		因为 Demo 2 中的 lis 是一个动态的 Node List， 每一次调用 lis 都会重新对文档进行查询，导致无限循环的问题。而 Demo 1 中的 lis 是一个静态的 Node List，是一个 li 集合的快照，对文档的任何操作都不会对其产生影响。  
+		```
 4. Intersection Observer API.[MDN 介绍](https://developer.mozilla.org/zh-CN/docs/Web/API/Intersection_Observer_API) 
 	> 提供了一种异步观察目标元素与祖先元素或顶级文档viewport的交集中的变化的方法。  
 
@@ -106,16 +108,14 @@
 	Math.pow(10, 10000) === Infinity  // true  
 	Infinity/Infinity  // NaN  
 	54325435/Infinity  // 0  
-	```  
+	```
 7. **EventTarget.addEventListener()** 的第三个参数。在「红宝石」书中，这个方法的第三个参数接受的是一个布尔值，如今在新版本的 DOM 的规定中，第三个参数可以接受一个可选配置对象。除了控制回调函数触发的事件流阶段的功能以外，增加了**「控制回调函数是否只执行一次」**、「**回调函数中是否可以使用 preventDefault()**」的两个配置项，具体细节「[MDN](https://developer.mozilla.org/zh-CN/docs/Web/API/EventTarget/addEventListener)」  
-
-8. **document.referrer 介绍及理解**  document 对象有个 referrer 属性，它的值是上一个访问过页面的 url 。在有「返回上一页」的需求时，对这个属性做个判空处理用户体验更好。以下情况下 document.referrer 的值为空：    
-	> + 无上一个访问过的页面，如直接在地址栏输入地址访问的网页它的值为空字符串；  
-	> + 通过 rel="noreferrer" 的 a 标签跳转的网页；  
-	> + 网页中设置了 ```<meta content="never" name="referrer">``` 的网页；  
-	> + 「Referrer Policy」可以设置网页是否设置 referrer 的值, 社区的前辈已经总结：<img src="./imgs/referrer-policy.jpg" width = "100%"  alt="Chrome 浏览器" />  
-
-	其实与之对应的是 HTTP 协议在请求（request）的头信息里的「Referer」 字段，给出了上一个访问页面的 URL。（详情见：http://www.ruanyifeng.com/blog/2019/06/http-referer.html）。  
-
-9. 
-
+8. **isFinite()** 这是 Javascript 标准内置的一个方法, 几乎所有主流的浏览器都支持该方法，它用来判断是个数是否是*有限数*（非无穷数），它接受一个参数，该参数在非 number 类型的情况下会强制类型转换成 number 类型，该方法返回一个布尔值。  
+	```  js
+	isFinite(NaN); // false  
+	isFinite('string'); // false, Number('string') 的结果是 NaN  
+	isFinite(1000/0); // false  
+	isFinite(34); // true
+	isFinite(0); // true  
+	isFinite(false); // true  
+	```
