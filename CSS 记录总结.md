@@ -49,5 +49,5 @@
 *解决方法：* 在对应的 input 元素的 css 下将这些额外加上的属性恢复默认值（` -webkit-appearance: none; `）  
 4. translate 属性控制的元素偏移并不会影响其他元素的布局；在一个特定大小的父容器中如果使用 **translate 控制子元素偏移出父容器范围**，且父容器 overflow：scroll，则会**触发滚动条**。（[例子](https://codepen.io/yeejone/pen/NWKmOwm)）  
 
-5. img 标签无法使用 ::before 、::after 伪元素。具体原因是： [w3c 规范](https://www.w3.org/TR/CSS22/conform.html#doctree)中并没有明确定义[「替换元素」](https://www.w3.org/TR/CSS22/conform.html#doctree)与::before、::after 的交互，所以导致绝大部分浏览器产商没有实现该功能。
+5. img 标签无法使用 ::before 、::after 伪元素。具体原因是： [w3c 规范](https://www.w3.org/TR/CSS22/conform.html#doctree)中并没有明确定义[「替换元素」](https://www.w3.org/TR/CSS22/conform.html#doctree)与::before、::after 的交互，所以导致绝大部分浏览器产商没有实现该功能。  
 <img src="./imgs/img-before.jpg" width = "400" alt="w3c Note" /> 
