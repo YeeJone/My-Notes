@@ -1,18 +1,19 @@
 # 你不知道的HTML
 ## GET新技能  
 1. **```<progress>``` 元素**  
-	**定义**：该标签用来显示一项任务的完成进度，具体显示为一个[进度条](https://codepen.io/yeejone/pen/MWyyqoO) , 内联元素。  
+	**定义**：该标签用来显示一项任务的完成进度，具体显示为一个进度条, 内联元素。  
 	**属性**：progress 元素支持 HTML 中的全局属性，而且支持两个额外属性(number)：  
-	+ ```max``` - 用来标识完成进度总的「工作量」，当不设置这个值时，默认值是 1；
-	+ ```value``` - 用来标时当前状态已完成的「工作量」，它必须大于等于零，且小于 max 的值；     
+	+ ```max``` - 用来标识完成进度总的「工作量」，当不设置这个值时，默认值是 1；
+	+ ```value``` - 用来标识当前状态已完成的「工作量」，它必须大于等于零，且小于 max 的值；     
 
-	**样式**：对于 progress 元素的渲染，每个浏览器产商实现方式有差异，所以默认样式各个浏览器不一样。  
-	+ 可以使用 ```:not([value])``` 与 ```[value]``` 来给没有 value 值和 有 value 值的 progress 元素写样式；  
-	+ ```-webkit-appearance``` 设置成 ```none```, 可以设置成重置浏览器默认样式。谷歌和 safari 浏览器中的 progress 元素，其 appearance 属性的默认值为 ```progress-bar```，用来给 progress 元素一个默认样式；  
-	+ ```-webkit-progress-bar``` || ```-moz-progress-bar```用来设置 progress 元素 bar 的样式;
-	+ ```-webkit-progress-value``` || ```-moz-progress-value``` 用来设置 value bar 的样式；    
+	**样式**：对于 progress 元素的渲染，每个浏览器产商实现方式有差异，所以默认样式各个浏览器不一样。关于 progress 元素样式有几个关键的点：  
+	+ 可以使用 ```:not([value])``` 与 ```[value]``` 来给没有 value 值和 有 value 值的 progress 元素分别设置样式；  
+	+ ```appearance``` (不同浏览器需要加上前缀)设置成 ```none```, 可以重置浏览器默认样式。浏览器中的 progress 元素，其 appearance 属性的默认值为 ```progress-bar```，用来给 progress 元素一个默认样式；  
+	+ 在谷歌/safari 等 WebKit/Blink 内核的浏览器中，```-webkit-progress-bar``` 用来设置 progress 元素 bar 的样式，然而 Firefox 用 ```-moz-progress-bar``` 来设置**已完成 bar** 的样式，与谷歌浏览器完全相反， 而且 Firefox 不支持设置全部进度 bar 的样式;
+	+ ```-webkit-progress-value``` 用来设置已完成 bar 的样式；  
+	+ ```-webkit-progress-value``` & ```-webkit-progress-bar``` 都支持伪元素，但 ```-moz-progress-bar``` 不支持；
   
-	**兼容性**：[Can I use](https://caniuse.com/#search=progress) 98% 以上的浏览器都支持。和 video 元素一样，如果浏览器不支持该元素，可以在标签之间实现一个 fallback 方案，或者提示：  
+	**兼容性**：[Can I use](https://caniuse.com/#search=progress) 98% 以上的浏览器都支持。和 video 元素一样，如果浏览器不支持该元素，可以在标签之间实现一个 fallback 方案，或者友好提示：  
 	```html
 	<progress max="100" value="80">
 	  <div class="progress-bar">
@@ -20,7 +21,7 @@
 	  </div>
 	</progress>
 	```  
-	[相关示例代码](https://codepen.io/yeejone/pen/MWyyqoO)
+	[相关示例代码](https://codepen.io/yeejone/pen/MWyyqoO)
 
 	
 ## Attention Point
