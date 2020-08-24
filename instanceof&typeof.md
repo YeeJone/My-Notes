@@ -1,7 +1,7 @@
 # instanceof && typeof
 ## typeof
 typeof的值：number,string,undefined,object,symbol,boolean,function  
-typeof所描述的是基本数据类型的值；  
+typeof所描述的是基本数据类型的值；  
 一些🌰：  
  >typeof 3.14 === 'number';  
  **typeof Math.LN2 === 'number';**  
@@ -31,21 +31,21 @@ instanceof是用来判断对应对象其所属的**引用类型** (object instan
  new String() instanceof String //true;
  "hello world!" instanceof String //false  
  ```  
- 上面的🌰前面的几个按照定义来理解很容易得出答案，最后一个按着定义来理解也可以得出false，因为“hello world”根本就不是一个引用类型。  
-### Curiosity--延伸  
+ 上面的🌰前面的几个按照定义来理解很容易得出答案，最后一个按着定义来理解也可以得出false，因为“hello world”根本就不是一个引用类型。 
+### Curiosity--延伸  
  ```js  
  "hello world".__proto__ //String {"", length: 0, constructor: ƒ, anchor: ƒ, big: ƒ, blink: ƒ, …};  
  (new String("hello world")).__proto__ //String {"", length: 0, constructor: ƒ, anchor: ƒ, big: ƒ, blink: ƒ, …};  
  "hello world".__proto__.constructor //ƒ String() { [native code] };  
  (new String("hello world")).__proto__.constructor // ƒ String() { [native code] };    
 
- //另一些奇怪现象；  
+ // 另一些奇怪现象；  
  console.log(Object instanceof Object);//true 
  console.log(Function instanceof Function);//true 
  console.log(Number instanceof Number);//false 
  console.log(String instanceof String);//false
  ```  
- 可以发现两种字符串的隐式原型和构造函数是一样的，那为什么instanceof的表现会不一样？  
+ 可以发现两种字符串的隐式原型和构造函数是一样的，那为什么instanceof的表现会不一样？  
  立马翻了翻红宝石书，原来**因为当我们尝试访问一个primitive值(基本数据类型，字面量)的属性时，JS引擎内部会调用一个内置[[toObject]] 方法，将字面量的"Hello World"转为一个[[PrimitiveValue]] (primitive类型：Undefined, Null, Boolean, String, Number)为”foo”的String对象，然后从其原型链中尝试查找需要访问的属性，使用结束后再释放掉这个String对象。**  
  ```js  
  "Hello world".__proto__//相当于toObject("Hello world").__proto__
