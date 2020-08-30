@@ -32,7 +32,7 @@
 	manual ： 使用了该值，单词只在有「&hyphen」 或者 「&shy」处使用连字符换行；  
 	auto ： 浏览器会更具相应的语言规则自动的使用连字符，而且会覆盖使用了 「&hyphen」、 「&shy」的自动断点选择。  
 6. **text-indent** 属性： 用来控制一个块级元素首行文本的缩进。它的值是一个长度单位，px 或者是百分比，值得注意的是，当值为百分比时，它的缩进长度是由该元素的父元素的宽度决定的。 
-7. **text-decoration** 属性： 用来设置文本装饰线（下划线、上划线、删除线等）样式。它是 [text-decoration-line](https://developer.mozilla.org/zh-CN/docs/Web/CSS/text-decoration-line), [text-decoration-color](https://developer.mozilla.org/zh-CN/docs/Web/CSS/text-decoration), [text-decoration-style](https://developer.mozilla.org/zh-CN/docs/Web/CSS/text-decoration-style), 和新属性 [text-decoration-thickness](https://developer.mozilla.org/zh-CN/docs/Web/CSS/%E6%96%87%E6%9C%AC%E8%A3%85%E9%A5%B0%E7%BA%BF%E5%8E%9A%E5%BA%A6(%E7%B2%97%E7%BB%86)) 的缩写，用法：`text-decoration: underline dotted #FF3028;`。  
+7. **text-decoration** 属性： 用来设置文本装饰线（下划线、上划线、删除线等）样式。它是 [text-decoration-line](https://developer.mozilla.org/zh-CN/docs/Web/CSS/text-decoration-line), [text-decoration-color](https://developer.mozilla.org/zh-CN/docs/Web/CSS/text-decoration), [text-decoration-style](https://developer.mozilla.org/zh-CN/docs/Web/CSS/text-decoration-style), 和新属性 [text-decoration-thickness](https://developer.mozilla.org/zh-CN/docs/Web/CSS/%E6%96%87%E6%9C%AC%E8%A3%85%E9%A5%B0%E7%BA%BF%E5%8E%9A%E5%BA%A6(%E7%B2%97%E7%BB%86)) 的缩写，用法：`text-decoration: underline dotted #FF3028;`。  
 **注意事项**：  
 	+ 当没有设置 `text-decoration-color` 时，装饰线的颜色默认使用字体颜色；  
 	+ **子元素无法撤销或修改父元素设置的装饰线及其样式**，只能进行新增装饰线样式的操作；  
