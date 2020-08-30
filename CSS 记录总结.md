@@ -9,9 +9,9 @@
 2. **word-break** 属性： 指定了怎样在单词内断行。([MDN介绍](https://developer.mozilla.org/zh-CN/docs/Web/CSS/word-break))  
 如果没有设置`word-break`属性，该元素实现了单行省略，且文本中包括「长破折号」、「连续多个等于号」或 non-CJK (CJK 指中文/日文/韩文) 文本，这该单行省略可能会出现异常，解决办法就是设置`word-break`属性。（例子：https://codepen.io/yeejone/pen/zYOdRXY）  
 3. **pointer-events** 属性：*指定在什么情况下 (如果有) 某个特定的图形元素可以成为鼠标事件的 target* 
-该属性的大部分是和 SVG 相关的，具体可移步 [MDN](https://developer.mozilla.org/zh-CN/docs/Web/CSS/pointer-events)。 这边主要关注 ```pointer-events：none``` 的一些表现和实际应用。🌰：[CodePen](https://codepen.io/yeejone/pen/gOYEMab)  
-	+ 当该属性值为 ```none``` 时，则该元素将不接受所有鼠标事件；
-	+ 该属性设为 ```none```，则该元素在页面上的表现相当于一个带有样式的'水印'，它会造成点击穿透；  
+该属性的大部分是和 SVG 相关的，具体可移步 [MDN](https://developer.mozilla.org/zh-CN/docs/Web/CSS/pointer-events)。 这边主要关注 `pointer-events：none` 的一些表现和实际应用。🌰：[CodePen](https://codepen.io/yeejone/pen/gOYEMab)  
+	+ 当该属性值为 `none` 时，则该元素将不接受所有鼠标事件；
+	+ 该属性设为 `none`，则该元素在页面上的表现相当于一个带有样式的'水印'，它会造成点击穿透；  
 
 4. **filter** 属性：可以通过设定相关「效果函数」，来改变页面中的一些图片展示效果。  
 	> 「效果函数」：   
@@ -31,8 +31,12 @@
 	none ：表示单词并不会在换行符处出现，该行文本只在行文的空白处换行；  
 	manual ： 使用了该值，单词只在有「&hyphen」 或者 「&shy」处使用连字符换行；  
 	auto ： 浏览器会更具相应的语言规则自动的使用连字符，而且会覆盖使用了 「&hyphen」、 「&shy」的自动断点选择。  
-6. **text-indent** 属性： 用来控制一个块级元素首行文本的缩进。它的值是一个长度单位，px 或者是百分比，值得注意的是，当值为百分比时，它的缩进长度是由该元素的父元素的宽度决定的。  
-7. **:nth-child 伪类使用** : :nth-child() 括号中可以填写具体的数字，也可以填写 an+b 的表达式，或者是 [even]、[odd] 这两个关键字。  
+6. **text-indent** 属性： 用来控制一个块级元素首行文本的缩进。它的值是一个长度单位，px 或者是百分比，值得注意的是，当值为百分比时，它的缩进长度是由该元素的父元素的宽度决定的。 
+7. **text-decoration** 属性： 用来设置文本装饰线（下划线、上划线、删除线等）样式。它是 [text-decoration-line](https://developer.mozilla.org/zh-CN/docs/Web/CSS/text-decoration-line), [text-decoration-color](https://developer.mozilla.org/zh-CN/docs/Web/CSS/text-decoration), [text-decoration-style](https://developer.mozilla.org/zh-CN/docs/Web/CSS/text-decoration-style), 和新属性 [text-decoration-thickness](https://developer.mozilla.org/zh-CN/docs/Web/CSS/%E6%96%87%E6%9C%AC%E8%A3%85%E9%A5%B0%E7%BA%BF%E5%8E%9A%E5%BA%A6(%E7%B2%97%E7%BB%86)) 的缩写，用法：`text-decoration: underline dotted #FF3028;`。  
+**注意事项**：  
+	+ 当没有设置 `text-decoration-color` 时，装饰线的颜色默认使用字体颜色；  
+	+ **子元素无法撤销或修改父元素设置的装饰线及其样式**，只能进行新增装饰线样式的操作；  
+10. **:nth-child 伪类使用** : `:nth-child()` 括号中可以填写具体的数字，也可以填写 an+b 的表达式，或者是 [even]、[odd] 这两个关键字。  
 	+ 当填写数字 (x) 时, 表示获取该选择器的**第 x 个元素**
 	+ an+b 表达式，匹配到的元素集合（n=0，1，2，3...），其中 a、b 都必须为整数，元素集合的第一个元素下标为 1 。特别需要注意的是：**an 必须写在 b 的前面，不能写成 b+an 的形式**。
 	```css 

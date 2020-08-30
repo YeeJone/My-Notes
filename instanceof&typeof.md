@@ -24,7 +24,7 @@ typeof所描述的是基本数据类型的值；
 ## instanceof  
 instanceof是用来判断对应对象其所属的**引用类型** (object instanceof constructor)是指对象A的原型链上是否有B构造函数所指向的原型(B.prototype)  
 举个🌰 ：  
- ```javascript  
+ ```js  
  [1,2,3,4] instanceof Array  //true;
  new String("Hello") instanceof String //true;  
  new String("Hello") instanceof Object //true;  
