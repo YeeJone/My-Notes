@@ -55,7 +55,7 @@
 	🌟
 	span:nth-child(-n+3)
 	匹配前三个子元素中的 span 元素
-	```
+	```  
 	
 ## Attention Point
 1. 浏览器渲染页面的过程：[页面渲染](https://coolshell.cn/articles/9666.html);
@@ -74,4 +74,6 @@
 4. translate 属性控制的元素偏移并不会影响其他元素的布局；在一个特定大小的父容器中如果使用 **translate 控制子元素偏移出父容器范围**，且父容器 overflow：scroll，则会**触发滚动条**。（[例子](https://codepen.io/yeejone/pen/NWKmOwm)）  
 
 5. img 标签无法使用 ::before 、::after 伪元素。具体原因是： [w3c 规范](https://www.w3.org/TR/CSS22/conform.html#doctree)中并没有明确定义[「替换元素」](https://www.w3.org/TR/CSS22/conform.html#doctree)与::before、::after 的交互，所以导致绝大部分浏览器产商没有实现该功能。  
-<img src="./imgs/img-before.jpg" width = "400" alt="w3c Note" /> 
+<img src="./imgs/img-before.jpg" width = "400" alt="w3c Note" />  
+
+6. CSS 中的 RGB 色值，十六进制符号使用时通常为六位 #RRGGBB ， 八位的情况如：#RRGGBB[AA] ，后面的[AA]为 alpha 值，代表透明度。
